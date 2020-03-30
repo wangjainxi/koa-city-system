@@ -1,0 +1,2 @@
+- nodemon 插件：npm i nodemon -g
+- mongo工具 robo 3T
