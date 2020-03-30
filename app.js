@@ -31,6 +31,16 @@ MongoClient.connect( DB, { useNewUrlParser: true,useUnifiedTopology:true }, func
 // })
 
 const users = require("./routes/api/users")
+const warningcolor = require("./routes/api/warningcolor")
+const workflow = require("./routes/api/workflow")
+const casetype = require("./routes/api/casetype")
+const notice = require("./routes/api/notice")
+const peoplemanagement = require("./routes/api/peoplemanagement")
+const question = require("./routes/api/question")
+const usermanagement = require("./routes/api/usermanagement")
+const menumanagement = require("./routes/api/menumanagement")
+const insManagement = require("./routes/api/insManagement")
+const rolemanagement = require("./routes/api/rolemanagement")
 app.use(bodyParser())
 // 路由
 router.get('/', async ctx =>{
@@ -41,6 +51,17 @@ router.get('/', async ctx =>{
 
 // 配置路由地址
 router.use("/api/users", users)
+router.use("/api/warningcolor", warningcolor)
+router.use("/api/workflow", workflow)
+router.use("/api/casetype", casetype)
+router.use("/api/notice", notice)
+router.use("/api/peoplemanagement", peoplemanagement)
+router.use("/api/question", question)
+router.use("/api/usermanagement", usermanagement)
+router.use("/api/menumanagement", menumanagement)
+router.use("/api/insManagement", insManagement)
+router.use("/api/rolemanagement", rolemanagement)
+
 // 配置路由
 app.use(router.routes()).use(router.allowedMethods())
 

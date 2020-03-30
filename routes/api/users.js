@@ -9,7 +9,7 @@ router.get("/test", async ctx =>{
 
     ctx.status = 200
     ctx.body ={
-        mas: 'users works'
+        data: 'users works'
     }
 })
 
@@ -26,7 +26,9 @@ router.post("/register",  ctx =>{
 
     ctx.status = 200
     ctx.body ={
-        mas: 'users works'
+        code: 0,
+        mas: 'users works',
+        msg: 'success'
     }
 })
 
