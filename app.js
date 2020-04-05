@@ -15,13 +15,13 @@ require('colors')
 MongoClient.connect( DB, { useNewUrlParser: true,useUnifiedTopology:true }, function(err, db) {
 //   if (err) throw err;
   console.log("数据库已创建!");
-  var dbcity = db.db("city");
+//   var dbcity = db.db("city");
   var myobj = { name: "测试" };
-  dbcity.collection("site").insertOne(myobj, function(err, res) {
-      if (err) throw err;
-      console.log("文档插入成功");
-      db.close();
-  });
+//   dbcity.collection("site").insertOne(myobj, function(err, res) {
+//       if (err) throw err;
+//       console.log("文档插入成功");
+//       db.close();
+//   });
 });
 
 // app.use(async (ctx) => {
@@ -50,23 +50,20 @@ router.get('/', async ctx =>{
 })
 
 // 配置路由地址
-router.use("/api/users", users)
-router.use("/api/warningcolor", warningcolor)
-router.use("/api/workflow", workflow)
-router.use("/api/casetype", casetype)
-router.use("/api/notice", notice)
-router.use("/api/peoplemanagement", peoplemanagement)
-router.use("/api/question", question)
-router.use("/api/usermanagement", usermanagement)
-router.use("/api/menumanagement", menumanagement)
-router.use("/api/insManagement", insManagement)
-router.use("/api/rolemanagement", rolemanagement)
+router.use("/bpi/users", users)
+router.use("/bpi/warningcolor", warningcolor)
+router.use("/bpi/workflow", workflow)
+router.use("/bpi/casetype", casetype)
+router.use("/bpi/notice", notice)
+router.use("/bpi/peoplemanagement", peoplemanagement)
+router.use("/bpi/question", question)
+router.use("/bpi/usermanagement", usermanagement)
+router.use("/bpi/menumanagement", menumanagement)
+router.use("/bpi/insManagement", insManagement)
+router.use("/bpi/rolemanagement", rolemanagement)
 
 // 配置路由
 app.use(router.routes()).use(router.allowedMethods())
-
-
-
 
 
 
