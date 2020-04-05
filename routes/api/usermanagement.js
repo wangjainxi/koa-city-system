@@ -1,97 +1,16 @@
 const Router = require('koa-router');
 const router = new Router()
-const User = require('../../models/users')
+const Usermanagement = require('../../models/usermanagement')
 /**
  *   GET api/users/test
  */
 
 router.get("/getData", async ctx =>{
-
+  const res = await Usermanagement.find()
     ctx.status = 200
     ctx.body ={
         code: 0,
-        data: [
-            {
-              checkbox: true,
-              username: 'aaa',
-              name: '值班长',
-              role: '',
-              PDA: 2412424,
-              status: true
-            },
-            {
-              checkbox: false,
-              username: 'aaa',
-              name: '刘美丽',
-              role: '',
-              PDA: 121212,
-              status: false
-            },
-            {
-              checkbox: false,
-              username: 'aaa',
-              name: '专业部门',
-              role: '',
-              PDA: 2121244,
-              status: false
-            },
-            {
-              checkbox: false,
-              username: 'ccc',
-              name: '监督员',
-              role: '',
-              PDA: 32234234,
-              status: false
-            },
-            {
-              checkbox: false,
-              username: 'aaa',
-              name: '专业部门',
-              role: '',
-              PDA: 3242342,
-              status: false
-            },
-            {
-              checkbox: false,
-              username: 'aaa',
-              name: '值班长',
-              role: '',
-              PDA: 3424,
-              status: false
-            },
-            {
-              checkbox: false,
-              username: 'asdsada',
-              name: '值班长',
-              role: '',
-              PDA: 453,
-              status: false
-            },
-            {
-              checkbox: false,
-              username: 'sdas',
-              name: '环卫刘丽',
-              role: '',
-              PDA: 3434,
-              status: false
-            },
-            {
-              checkbox: false,
-              username: 'aaa',
-              name: '城管局',
-              role: '',
-              PDA: 23242,
-              status: false
-            },
-            {
-              checkbox: false,
-              username: 'aaa',
-              name: '城管局',
-              role: '',
-              PDA: 3242,
-              status: false
-            }
-          ],
+        data: res,
         msg: 'success'
     }
 })

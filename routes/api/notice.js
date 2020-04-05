@@ -1,27 +1,18 @@
 const Router = require('koa-router');
 const router = new Router()
-const User = require('../../models/users')
+const Notice = require('../../models/notice')
 /**
  *   GET api/users/test
  */
 
 router.get("/getData", async ctx =>{
+    const res  = await Notice.find()
 
+    console.log('Notice res',res)
     ctx.status = 200
     ctx.body ={
         code: 0,
-        data:[
-            { title: '今天是第一', publish: '测试班长', publishdate: new Date(), roll: '3', checkbox: false, desc: '内容.....' },
-            { title: '今天是6月26号', publish: 'admin', publishdate: new Date(), roll: '1', checkbox: false, desc: '内容.....' },
-            { title: '222', publish: '测试班长', publishdate: new Date(), roll: '2', checkbox: false, desc: '内容.....' },
-            { title: '1111', publish: '测试班长', publishdate: new Date(), roll: '1', checkbox: false, desc: '内容.....' },
-            { title: '6666', publish: '贾苏', publishdate: new Date(), roll: '3', checkbox: false, desc: '内容.....' },
-            { title: '发卷子了', publish: '测试班长', publishdate: new Date(), roll: '3', checkbox: false, desc: '内容.....' },
-            { title: '测试的标题', publish: 'admin', publishdate: new Date(), roll: '5', checkbox: false, desc: '内容.....' },
-            { title: '不发了', publish: '测试班长', publishdate: new Date(), roll: '2', checkbox: false, desc: '内容.....' },
-            { title: '发给电工的公告', publish: '测试班长', publishdate: new Date(), roll: '3', checkbox: false, desc: '内容.....' },
-            { title: '今天发卷子了', publish: '测试班长', publishdate: new Date(), roll: '1', checkbox: false, desc: '内容.....' }
-          ],
+        data: res,
         msg: 'success'
     }
 })

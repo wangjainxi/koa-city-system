@@ -1,23 +1,15 @@
 const Router = require('koa-router');
 const router = new Router()
-const User = require('../../models/users')
+const Workflow = require('../../models/workflow')
 /**
  *   GET api/users/test
  */
 
 router.get("/getData", async ctx =>{
-
+    const res = await Workflow.find()
     ctx.status = 200
     ctx.body ={
-
-        data: [
-            {
-                checkbox: false,
-                name: '案件处理流程',
-                descript: '案件处理流程',
-                updateTime: new Date()
-              }
-          ],
+        data: res,
         msg: 'success'
     }
 })

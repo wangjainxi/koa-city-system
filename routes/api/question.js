@@ -1,24 +1,17 @@
 const Router = require('koa-router');
 const router = new Router()
-const User = require('../../models/users')
+const Question = require('../../models/question')
 /**
  *   GET api/users/test
  */
 
 router.get("/getData", async ctx =>{
 
+      const res = await Question.find()
     ctx.status = 200
     ctx.body ={
         code: 0,
-        data: [
-            { checkbox: false, id: 201220629145151, name: '监督员上报' },
-            { checkbox: false, id: 1, name: '监督员上报' },
-            { checkbox: false, id: 2, name: '网上投诉' },
-            { checkbox: false, id: 3, name: '市民来电' },
-            { checkbox: false, id: 4, name: '巡查发现' },
-            { checkbox: false, id: 5, name: '监控发现' },
-            { checkbox: false, id: 6, name: '12345市长热线' }
-          ],
+        data: res,
         msg: 'success'
     }
 })
