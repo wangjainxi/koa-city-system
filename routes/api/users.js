@@ -19,11 +19,12 @@ router.get("/test", async ctx =>{
 
 router.post("/register", async ctx =>{
     const {name, email,password} = ctx.request.body
-  const res = await User.find({email: email})
+  const res = await User.find()
  console.log('findResult res',res)
  if(res.length > 0){
     ctx.status = 200
     ctx.body ={
+        res,
         code: 0,
         value: '邮箱已被占用',
         msg: 'success'
