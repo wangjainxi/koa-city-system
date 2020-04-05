@@ -4,7 +4,7 @@ const Router = require('koa-router')
 const app  = new koa()
 const router = new Router()
 const bodyParser = require('koa-bodyparser')
-const MongoClient = require('mongodb').MongoClient;
+const MongoClient = require('mongoose');
 const { DB } = require('./config/index')
 // const UserInfo = require('./models/users')
 require('colors')
@@ -15,13 +15,13 @@ require('colors')
 MongoClient.connect( DB, { useNewUrlParser: true,useUnifiedTopology:true }, function(err, db) {
 //   if (err) throw err;
   console.log("数据库已创建!");
-  var dbcity = db.db("city");
-  var myobj = { name: "测试" };
-  dbcity.collection("site").insertOne(myobj, function(err, res) {
-      if (err) throw err;
-      console.log("文档插入成功");
-      db.close();
-  });
+//   var dbcity = db.db("city");
+//   var myobj = { name: "测试" };
+//   dbcity.collection("site").insertOne(myobj, function(err, res) {
+//       if (err) throw err;
+//       console.log("文档插入成功");
+//       db.close();
+//   });
 });
 
 // app.use(async (ctx) => {

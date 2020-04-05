@@ -432,7 +432,7 @@ caseType: [
             { id: 8, label: '违法建设类', children: [
               { id: 36, label: '违法建设' }
             ] }
-          ]
+
         },
         { id: 2,
           label: '部件',

@@ -17,19 +17,32 @@ router.get("/test", async ctx =>{
  *   post api/users/register
  */
 
-router.post("/register",  ctx =>{
-    const {name, email} = ctx.request.body
- User.find({},(res,err) =>{
-    console.log('findResult res',res)
-    console.log('findResultmerr',err)
-   })
-
+router.post("/register", async ctx =>{
+    const {name, email,password} = ctx.request.body
+  const res = await User.find({email: email})
+ console.log('findResult res',res)
+ if(res.length > 0){
     ctx.status = 200
     ctx.body ={
         code: 0,
-        mas: 'users works',
+        value: '邮箱已被占用',
         msg: 'success'
     }
+
+ } else {
+    const temp = new User({
+        name,
+        email,
+        password
+    })
+  await  temp.save()
+  ctx.status = 200
+    ctx.body ={
+        code: 0,
+        value: '创建成功',
+        msg: 'success'
+    }
+ }
 })
 
 
